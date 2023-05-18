@@ -1,0 +1,4 @@
+{
+    "description": "Very short template to experiment with.",
+    "prompt_no_input": "{instruction}",
+}

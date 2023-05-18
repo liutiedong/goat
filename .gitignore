@@ -1,0 +1,16 @@
+out/
+7B/
+13B/
+__pycache__/
+checkpoint**
+minimal-llama**
+upload.py
+weights/
+lora-**
+*ckpt
+wandb
+evaluate.py
+test_data.json
+todo.txt
+.venv
+.vscode
