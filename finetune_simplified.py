@@ -27,18 +27,16 @@ from utils.prompter import Prompter
 
 def train(
     # model/data params
-    base_model: str = "",  # the only required argument
+    base_model: str = "",  # the only required argument train_add_8digit_5terms_200000_step_by_step
     data_path: str = "train_ablation_200000.json",
-    output_dir: str = "./train_ablation_200000",
-    
+    output_dir: str = "./lora-alpaca-7B-train_ablation_200000_no_breakdown",
     # training hyperparams
     batch_size: int = 128,
     micro_batch_size: int = 16,
     num_epochs: int = 1,
     learning_rate: float = 3e-4,
-    cutoff_len: int = 512,
+    cutoff_len: int = 512, #320,
     val_set_size: int = 0,
-    
     # lora hyperparams
     lora_r: int = 64,
     lora_alpha: int = 64,
@@ -49,17 +47,16 @@ def train(
         "k_proj",
         "o_proj",
     ],
-    
     # llm hyperparams
     train_on_inputs: bool = False,  # if False, masks out inputs in loss
-    group_by_length: bool = True,  # faster, but produces an odd training loss curve
+    group_by_length: bool = False,  # faster, but produces an odd training loss curve
     # wandb params
     wandb_project: str = "lora_code_7B_mul",
     wandb_run_name: str = "",
     wandb_watch: str = "",  # options: false | gradients | all
     wandb_log_model: str = "",  # options: false | true
     resume_from_checkpoint: str = None,  # either training checkpoint or final adapter
-    prompt_template_name: str = "goat"
+    prompt_template_name: str = "alpaca_nil",  # The prompt template to use, will default to alpaca.
 ):
     if int(os.environ.get("LOCAL_RANK", 0)) == 0:
         print(
@@ -100,6 +97,7 @@ def train(
         device_map = {"": int(os.environ.get("LOCAL_RANK") or 0)}
         gradient_accumulation_steps = gradient_accumulation_steps // world_size
 
+    # Check if parameter passed or if set within environ
     use_wandb = len(wandb_project) > 0 or (
         "WANDB_PROJECT" in os.environ and len(os.environ["WANDB_PROJECT"]) > 0
     )
@@ -117,14 +115,23 @@ def train(
         torch_dtype=torch.float16,
         device_map=device_map,
     )
+    # model.config.pad_token_id = 0  # unk
+    # model.config.bos_token_id = 1
+    # model.config.eos_token_id = 2
 
     tokenizer = LlamaTokenizer.from_pretrained('hf-internal-testing/llama-tokenizer')
 
     tokenizer.pad_token_id = 0
+          # unk. we want this to be different from the eos token
+
+    # tokenizer.bos_token_id = 1
+    # tokenizer.eos_token_id = 2
     
     tokenizer.padding_side = "left"  # Allow batched inference
 
     def tokenize(prompt, add_eos_token=True):
+        # there's probably a way to do this with the tokenizer settings
+        # but again, gotta move fast
         result = tokenizer(
             prompt,
             truncation=True,
@@ -145,13 +152,14 @@ def train(
         return result
 
     def generate_and_tokenize_prompt(data_point):
-        full_prompt = prompter.generate_prompt_simplified(
+        full_prompt = prompter.generate_prompt(
             data_point["instruction"],
-            data_point["cot"],
+            None,
+            data_point["cot_no_breakdown"],
         )
         tokenized_full_prompt = tokenize(full_prompt)
         if not train_on_inputs:
-            user_prompt = prompter.generate_prompt_simplified(
+            user_prompt = prompter.generate_prompt(
                 data_point["instruction"]
             )
             tokenized_user_prompt = tokenize(user_prompt, add_eos_token=False)
@@ -240,7 +248,7 @@ def train(
             eval_steps=200 if val_set_size > 0 else None,
             save_steps=50,
             output_dir=output_dir,
-            save_total_limit=10,
+            save_total_limit=50,
             load_best_model_at_end=False if val_set_size > 0 else False,
             ddp_find_unused_parameters=False if ddp else None,
             group_by_length=group_by_length,
@@ -274,3 +282,4 @@ def train(
 
 if __name__ == "__main__":
     fire.Fire(train)
+
