@@ -91,7 +91,7 @@ def main(
         top_k=40,
         num_beams=4,
         max_new_tokens=512,
-        stream_output=False,
+        stream_output=True,
         **kwargs,
     ):
         prompt = prompter.generate_prompt_inference(instruction)
@@ -189,7 +189,7 @@ def main(
             )
         ],
         title="Goat-loRA-7b",
-        description="Goat-loRA-7b is a 7B-parameter LLaMA model finetuned to perform arithmetic tasks, including addition, subtraction, multiplication and division. It is trained on a synthetic dataset (https://github.com/liutiedong/goat) and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/liutiedong/goat).",  # noqa: E501
+        description="Goat-LoRA-7b is a 7B-parameter LLaMA finetuned to perform arithmetic tasks, including addition, subtraction, multiplication, and division of integers. It is trained on a synthetic dataset (https://github.com/liutiedong/goat) and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/liutiedong/goat).",  # noqa: E501
     ).queue().launch(server_name="0.0.0.0", share=share_gradio)
     # Old testing code follows.
 

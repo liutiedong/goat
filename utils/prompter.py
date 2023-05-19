@@ -85,4 +85,5 @@ class Prompter(object):
         return res
 
     def get_response(self, output: str) -> str:
-        return output.split("Answer:")[1].strip()
+        # return output.split("Answer:")[1].strip()
+        return output
