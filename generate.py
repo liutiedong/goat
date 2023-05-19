@@ -26,10 +26,10 @@ except:  # noqa: E722
 def main(
     load_8bit: bool = False,
     base_model: str = "",
-    lora_weights: str = "tloen/alpaca-lora-7b",
+    lora_weights: str = "tiedong/goat-lora-7b",
     prompt_template: str = "",  # The prompt template to use, will default to alpaca.
     server_name: str = "0.0.0.0",  # Allows to listen on all interfaces by providing '0.
-    share_gradio: bool = False,
+    share_gradio: bool = True,
 ):
     base_model = base_model or os.environ.get("BASE_MODEL", "")
     assert (
@@ -37,7 +37,7 @@ def main(
     ), "Please specify a --base_model, e.g. --base_model='huggyllama/llama-7b'"
 
     prompter = Prompter(prompt_template)
-    tokenizer = LlamaTokenizer.from_pretrained(base_model)
+    tokenizer = LlamaTokenizer.from_pretrained('hf-internal-testing/llama-tokenizer')
     if device == "cuda":
         model = LlamaForCausalLM.from_pretrained(
             base_model,
@@ -73,9 +73,9 @@ def main(
         )
 
     # unwind broken decapoda-research config
-    model.config.pad_token_id = tokenizer.pad_token_id = 0  # unk
-    model.config.bos_token_id = 1
-    model.config.eos_token_id = 2
+    # model.config.pad_token_id = tokenizer.pad_token_id = 0  # unk
+    # model.config.bos_token_id = 1
+    # model.config.eos_token_id = 2
 
     if not load_8bit:
         model.half()  # seems to fix bugs for some users.
@@ -86,16 +86,15 @@ def main(
 
     def evaluate(
         instruction,
-        input=None,
         temperature=0.1,
         top_p=0.75,
         top_k=40,
         num_beams=4,
-        max_new_tokens=128,
+        max_new_tokens=512,
         stream_output=False,
         **kwargs,
     ):
-        prompt = prompter.generate_prompt(instruction, input)
+        prompt = prompter.generate_prompt(instruction)
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
         generation_config = GenerationConfig(
@@ -166,7 +165,6 @@ def main(
                 label="Instruction",
                 placeholder="Tell me about alpacas.",
             ),
-            gr.components.Textbox(lines=2, label="Input", placeholder="none"),
             gr.components.Slider(
                 minimum=0, maximum=1, value=0.1, label="Temperature"
             ),
