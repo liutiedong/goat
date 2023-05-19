@@ -19,7 +19,7 @@ else:
 try:
     if torch.backends.mps.is_available():
         device = "mps"
-except:  # noqa: E722
+except:
     pass
 
 
@@ -27,8 +27,8 @@ def main(
     load_8bit: bool = False,
     base_model: str = "",
     lora_weights: str = "tiedong/goat-lora-7b",
-    prompt_template: str = "goat",  # The prompt template to use, will default to alpaca.
-    server_name: str = "0.0.0.0",  # Allows to listen on all interfaces by providing '0.
+    prompt_template: str = "goat",  
+    server_name: str = "0.0.0.0",
     share_gradio: bool = True,
 ):
     base_model = base_model or os.environ.get("BASE_MODEL", "")
@@ -73,7 +73,7 @@ def main(
         )
 
     if not load_8bit:
-        model.half()  # seems to fix bugs for some users.
+        model.half() 
 
     model.eval()
     if torch.__version__ >= "2" and sys.platform != "win32":
@@ -173,7 +173,7 @@ def main(
                 minimum=1, maximum=4, step=1, value=4, label="Beams"
             ),
             gr.components.Slider(
-                minimum=1, maximum=2000, step=1, value=128, label="Max tokens"
+                minimum=1, maximum=1024, step=1, value=512, label="Max tokens"
             ),
             gr.components.Checkbox(label="Stream output"),
         ],
@@ -186,25 +186,6 @@ def main(
         title="Goat-loRA-7b",
         description="Goat-LoRA-7b is a 7B-parameter LLaMA finetuned to perform arithmetic tasks, including addition, subtraction, multiplication, and division of integers. It is trained on a synthetic dataset (https://github.com/liutiedong/goat) and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/liutiedong/goat).",  # noqa: E501
     ).queue().launch(server_name="0.0.0.0", share=share_gradio)
-    # Old testing code follows.
-
-    """
-    # testing code for readme
-    for instruction in [
-        "Tell me about alpacas.",
-        "Tell me about the president of Mexico in 2019.",
-        "Tell me about the king of France in 2019.",
-        "List all Canadian provinces in alphabetical order.",
-        "Write a Python program that prints the first 10 Fibonacci numbers.",
-        "Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.",  # noqa: E501
-        "Tell me five words that rhyme with 'shock'.",
-        "Translate the sentence 'I have no mouth but I must scream' into Spanish.",
-        "Count up from 1 to 500.",
-    ]:
-        print("Instruction:", instruction)
-        print("Response:", evaluate(instruction))
-        print()
-    """
 
 
 if __name__ == "__main__":

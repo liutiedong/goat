@@ -28,15 +28,17 @@ from utils.prompter import Prompter
 def train(
     # model/data params
     base_model: str = "",  # the only required argument
-    data_path: str = "train_final_0512.json",
-    output_dir: str = "./new_template-train_final_0512",
+    data_path: str = "goat_dataset.json",
+    output_dir: str = "./weights",
+    
     # training hyperparams
     batch_size: int = 128,
     micro_batch_size: int = 16,
     num_epochs: int = 1,
     learning_rate: float = 3e-4,
-    cutoff_len: int = 512, #320,
+    cutoff_len: int = 512,
     val_set_size: int = 0,
+    
     # lora hyperparams
     lora_r: int = 64,
     lora_alpha: int = 64,
@@ -47,16 +49,17 @@ def train(
         "k_proj",
         "o_proj",
     ],
+    
     # llm hyperparams
     train_on_inputs: bool = False,  # if False, masks out inputs in loss
-    group_by_length: bool = False,  # faster, but produces an odd training loss curve
+    group_by_length: bool = True,  # faster, but produces an odd training loss curve
     # wandb params
     wandb_project: str = "lora_code_7B_mul",
     wandb_run_name: str = "",
     wandb_watch: str = "",  # options: false | gradients | all
     wandb_log_model: str = "",  # options: false | true
     resume_from_checkpoint: str = None,  # either training checkpoint or final adapter
-    prompt_template_name: str = "Q_template" #"alpaca_nil",  # The prompt template to use, will default to alpaca.
+    prompt_template_name: str = "goat"
 ):
     if int(os.environ.get("LOCAL_RANK", 0)) == 0:
         print(
@@ -97,7 +100,6 @@ def train(
         device_map = {"": int(os.environ.get("LOCAL_RANK") or 0)}
         gradient_accumulation_steps = gradient_accumulation_steps // world_size
 
-    # Check if parameter passed or if set within environ
     use_wandb = len(wandb_project) > 0 or (
         "WANDB_PROJECT" in os.environ and len(os.environ["WANDB_PROJECT"]) > 0
     )
@@ -123,8 +125,6 @@ def train(
     tokenizer.padding_side = "left"  # Allow batched inference
 
     def tokenize(prompt, add_eos_token=True):
-        # there's probably a way to do this with the tokenizer settings
-        # but again, gotta move fast
         result = tokenizer(
             prompt,
             truncation=True,
