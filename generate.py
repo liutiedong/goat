@@ -27,7 +27,7 @@ def main(
     load_8bit: bool = False,
     base_model: str = "",
     lora_weights: str = "tiedong/goat-lora-7b",
-    prompt_template: str = "",  # The prompt template to use, will default to alpaca.
+    prompt_template: str = "goat",  # The prompt template to use, will default to alpaca.
     server_name: str = "0.0.0.0",  # Allows to listen on all interfaces by providing '0.
     share_gradio: bool = True,
 ):
@@ -154,7 +154,7 @@ def main(
                 max_new_tokens=max_new_tokens,
             )
         s = generation_output.sequences[0]
-        output = tokenizer.decode(s)
+        output = tokenizer.decode(s, skip_special_tokens=True).strip()
         yield prompter.get_response(output)
 
     gr.Interface(
