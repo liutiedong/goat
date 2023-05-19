@@ -31,7 +31,7 @@ class Prompter(object):
         instruction: str,
         label: Union[None, str] = None,
     ) -> str:
-    
+
         res = f"{instruction}"
         if label:
             res = f"{res}{label}"
@@ -45,9 +45,14 @@ class Prompter(object):
         instruction: str,
         label: Union[None, str] = None,
     ) -> str:
+
+        if random.random()<0.5:
+            instruction = instruction.replace("*", "x")
         
-        num = random.randint(1,300)
-        
+        if random.random()<0.1:
+            instruction=instruction.replace("+", "plus").replace("-", "minus").replace("x", "times").replace("*", "multiplied by").replace("/", "divided by").       
+
+        num = random.randint(1,500)
         if random.random()<0.6:
             res = self.template[str(num)].format(
                 arithmetic=instruction.replace(" = ", "")
@@ -56,15 +61,17 @@ class Prompter(object):
             res = self.template[str(num)].format(
                 arithmetic=instruction.replace("=", "").replace(" ", "")
             )
-        res = f"{res}\nAnswer: "
+
+
+        prompt = f"{res}\nAnswer: "
             
                
         if label:
             # res = f"{res}{instruction}{label}"
-            res = f"{res}{label}"
+            prompt = f"{prompt}{label}"
         if self._verbose:
-            print(res)
-        return res
+            print(prompt)
+        return prompt
 
     def generate_prompt_inference(
         self,
