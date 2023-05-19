@@ -94,7 +94,7 @@ def main(
         stream_output=False,
         **kwargs,
     ):
-        prompt = prompter.generate_prompt(instruction)
+        prompt = prompter.generate_prompt_inference(instruction)
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
         generation_config = GenerationConfig(
@@ -188,8 +188,8 @@ def main(
                 label="Output",
             )
         ],
-        title="🦙🌲 Alpaca-LoRA",
-        description="Alpaca-LoRA is a 7B-parameter LLaMA model finetuned to follow instructions. It is trained on the [Stanford Alpaca](https://github.com/tatsu-lab/stanford_alpaca) dataset and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/tloen/alpaca-lora).",  # noqa: E501
+        title="Goat-loRA-7b",
+        description="Goat-loRA-7b is a 7B-parameter LLaMA model finetuned to perform arithmetic tasks, including addition, subtraction, multiplication and division. It is trained on a synthetic dataset (https://github.com/liutiedong/goat) and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/liutiedong/goat).",  # noqa: E501
     ).queue().launch(server_name="0.0.0.0", share=share_gradio)
     # Old testing code follows.
 

@@ -31,8 +31,6 @@ class Prompter(object):
         instruction: str,
         label: Union[None, str] = None,
     ) -> str:
-        # returns the full prompt from instruction and optional input
-        # if a label (=response, =output) is provided, it's also appended.
 
         res = self.template["prompt_no_input"].format(
             instruction=instruction
@@ -49,8 +47,6 @@ class Prompter(object):
         instruction: str,
         label: Union[None, str] = None,
     ) -> str:
-        # returns the full prompt from instruction and optional input
-        # if a label (=response, =output) is provided, it's also appended.
         
         num = random.randint(1,300)
         
@@ -71,6 +67,22 @@ class Prompter(object):
         if self._verbose:
             print(res)
         return res
-    
+
+    def generate_prompt_inference(
+        self,
+        instruction: str,
+        label: Union[None, str] = None,
+    ) -> str:
+        
+        res = f"{instruction}\nAnswer: "
+            
+               
+        if label:
+            # res = f"{res}{instruction}{label}"
+            res = f"{res}{label}"
+        if self._verbose:
+            print(res)
+        return res
+
     def get_response(self, output: str) -> str:
         return output.split("Answer:")[1].strip()
