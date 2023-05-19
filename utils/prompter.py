@@ -50,7 +50,7 @@ class Prompter(object):
             instruction = instruction.replace("*", "x")
         
         if random.random()<0.1:
-            instruction=instruction.replace("+", "plus").replace("-", "minus").replace("x", "times").replace("*", "multiplied by").replace("/", "divided by").       
+            instruction=instruction.replace("+", "plus").replace("-", "minus").replace("x", "times").replace("*", "multiplied by").replace("/", "divided by")    
 
         num = random.randint(1,500)
         if random.random()<0.6:

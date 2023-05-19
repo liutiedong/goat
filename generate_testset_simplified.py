@@ -27,8 +27,8 @@ except:  # noqa: E722
 def main(
     load_8bit: bool = True,
     base_model: str = "",
-    lora_weights: str = "lora-alpaca-7B-harmful_cot_direct",
-    prompt_template: str = "alpaca_nil",  # The prompt template to use, will default to alpaca.
+    lora_weights: str = "train_ablation_200000",
+    prompt_template: str = "goat",  # The prompt template to use, will default to alpaca.
     server_name: str = "0.0.0.0",  # Allows to listen on all interfaces by providing '0.
     share_gradio: bool = True,
 ):
@@ -91,7 +91,6 @@ def main(
 
     def evaluate(
         instruction,
-        input=None,
         temperature=0.9,
         top_p=0.75,
         top_k=40,
@@ -99,7 +98,7 @@ def main(
         max_new_tokens=320,
         **kwargs,
     ):
-        prompt = prompter.generate_prompt(instruction, input)
+        prompt = prompter.generate_prompt_simplified(instruction)
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
         generation_config = GenerationConfig(
@@ -124,14 +123,14 @@ def main(
     
     
     
-    with open("harmful_cot_test.json","rb") as test_file:
+    with open("train_ablation_200000.json","rb") as test_file:
         test_data = json.load(test_file)
         
     output_dict = {}
     index = 0
     correct = 0
     accuracy = 1
-    with open("output_test_harmful_cot_test.jsonl",'a') as output_file:
+    with open("output_train_ablation_200000.jsonl",'a') as output_file:
         for obj in test_data:
             index += 1
             if index>0:
@@ -154,50 +153,6 @@ def main(
                 json_string = json.dumps(output_dict)
                 output_file.write(json_string+'\n')
 
-    """
-    with open("./test.json","rb") as json_file:
-        json_data = json.loads(json_file.read())
-        df =  pd.DataFrame(json_data)
-    
-    output_list = []
-    target_list = []
-    prompt_list = []
-    
-    for index, row in df.iterrows():
-        print(row)
-        output_list.append(evaluate(row['instruction'],row['input']))
-        target_list.append(row['output'])
-        prompt_list.append(prompter.generate_prompt(row['instruction'],row['input']))
-        
-        
-    df["output"] = pd.Series(output_list)
-    df["target"] = pd.Series(target_list)
-    df["prompt"] = pd.Series(prompt_list)
-
-    output_dict = df.to_dict('records')
-
-    with open("test_output.json",'w') as file:
-        json.dump(output_dict, file)
-    """
-
-
-    """
-    # testing code for readme
-    for instruction in [
-        "Tell me about alpacas.",
-        "Tell me about the president of Mexico in 2019.",
-        "Tell me about the king of France in 2019.",
-        "List all Canadian provinces in alphabetical order.",
-        "Write a Python program that prints the first 10 Fibonacci numbers.",
-        "Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.",  # noqa: E501
-        "Tell me five words that rhyme with 'shock'.",
-        "Translate the sentence 'I have no mouth but I must scream' into Spanish.",
-        "Count up from 1 to 500.",
-    ]:
-        print("Instruction:", instruction)
-        print("Response:", evaluate(instruction))
-        print()
-    """
 
 
 if __name__ == "__main__":
