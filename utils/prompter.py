@@ -31,10 +31,8 @@ class Prompter(object):
         instruction: str,
         label: Union[None, str] = None,
     ) -> str:
-
-        res = self.template["prompt_no_input"].format(
-            instruction=instruction
-        )
+    
+        res = f"{instruction}"
         if label:
             res = f"{res}{label}"
         if self._verbose:
