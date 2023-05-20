@@ -157,8 +157,8 @@ def main(
         inputs=[
             gr.components.Textbox(
                 lines=2,
-                label="Instruction",
-                placeholder="Tell me about alpacas.",
+                label="Arithmetic",
+                placeholder="What is 63303235 + 20239503",
             ),
             gr.components.Slider(
                 minimum=0, maximum=1, value=0.1, label="Temperature"
