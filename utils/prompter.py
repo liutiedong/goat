@@ -18,5 +18,5 @@ class Prompter(object):
 
 
     def get_response(self, output: str) -> str:
-        # return output.split("Answer:")[1].strip()
-        return output
+        return output.split("Answer:")[1].strip().replace("/", "\u00F7").replace("*", "\u00D7")
+        # return output
