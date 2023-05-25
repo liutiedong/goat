@@ -26,8 +26,7 @@ except:
 def main(
     load_8bit: bool = False,
     base_model: str = "",
-    lora_weights: str = "tiedong/goat-lora-7b",
-    prompt_template: str = "goat",  
+    lora_weights: str = "tiedong/goat-lora-7b", 
     server_name: str = "0.0.0.0",
     share_gradio: bool = True,
 ):
@@ -36,7 +35,7 @@ def main(
         base_model
     ), "Please specify a --base_model, e.g. --base_model='huggyllama/llama-7b'"
 
-    prompter = Prompter(prompt_template)
+    prompter = Prompter()
     tokenizer = LlamaTokenizer.from_pretrained('hf-internal-testing/llama-tokenizer')
     if device == "cuda":
         model = LlamaForCausalLM.from_pretrained(
@@ -89,7 +88,7 @@ def main(
         stream_output=True,
         **kwargs,
     ):
-        prompt = prompter.generate_prompt_inference(instruction)
+        prompt = prompter.generate_prompt(instruction)
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
         generation_config = GenerationConfig(
