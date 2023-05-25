@@ -13,7 +13,7 @@ Our paper is available on arXiv (https://arxiv.org/abs/2305.14201).
    ```
 
 ### Dataset (`dataset.ipynb`)
-Run `dataset.ipynb` to generate dataset file. Each instance in the dataset contains
+Run `dataset.ipynb` to generate dataset file, or download from HuggingFace dataset `tiedong/goat`. Each instance in the dataset contains
 
 - __instruction__: human instruction in natural language created by inserting an arithmetic expression to the template. It serves as prompt to be fed to the model.
 - __input__: a randomly generated arithmetic expression. It can be used to replace 'instruction' when we want to focus on arithmetic and avoid the influence of natural language.
@@ -29,11 +29,24 @@ Example:
     "answer": "94140282"
 },
 {
+    "instruction": "Compute 8432862 - 659016175?",
+    "input": "8432862 - 659016175",
+    "output": "8432862 - 659016175 = -650583313",
+    "answer": "-650583313"
+},
+{
     "instruction": "Calculate 37 times 3066",
     "input": "37 * 3066",
     "output": "37 * 3066 = 3066 * (30 + 7) = 3066 * 30 + 3066 * 7 = 91980 + 21462 = 113442",
     "answer": "113442"
-}
+},
+{
+    "instruction": "Determine the numerical value of 5697/47.",
+    "input": "5697 / 47",
+    "output": "5697 - 47 * 100 = 5697 - 4700 = 997\n997 - 47 * 20 = 997 - 940 = 57\n57 - 47 * 1 = 57 - 47 = 10\nTherefore, 5697 / 47 = 121 R 10",
+    "answer": "121 R 10"
+},
+
 ```
 It is good to start with a simple sub-task, say 8-digit by 8-digit addition, which only takes less than 2 hours to achieve near-perfect accuracy (100000 training samples on A10 GPU). Modify `dataset.ipynb` to create your own data.
 
