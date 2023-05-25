@@ -1,0 +1,502 @@
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input}
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} =
+{input} is
+{input} is
+{input} is
+{input} is
+{input} is
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=
+{input}=?
+{input}=?
+{input}=?
+{input}=?
+{input}=?
+{input}=?
+{input}=?
+{input}=?
+{input}=?
+{input}=?
+what is {input}
+what is {input}
+what is {input}
+what is {input}
+what is {input}
+What is {input}
+What is {input}
+What is {input}
+What is {input}
+What is {input}
+What is {input}?
+What is {input}?
+What is {input}?
+What is {input}?
+What is {input}?
+What is {input}?
+What is {input}?
+What is {input}?
+What is {input}?
+What is {input}?
+compute {input}
+compute {input}
+compute {input}
+compute {input}
+compute {input}
+Compute {input}
+Compute {input}.
+Compute {input}.
+Compute {input}.
+Compute {input}.
+calculate {input}
+calculate {input}
+calculate {input}
+Calculate {input}
+Calculate {input}
+calculate {input}
+calculate {input}.
+calculate {input}.
+Calculate {input}.
+Calculate {input}.
+solve {input}
+solve {input}
+solve {input}
+Solve {input}
+Solve {input}.
+Solve {input}.
+Solve the following problem: {input}
+Solve the following problem: {input}
+Solve the following question: {input}
+Solve the following question: {input}
+Q: {input}
+Q: {input}
+Q: {input}
+Q: {input}
+Q: {input}
+Determine {input}
+Determine {input}
+Determine {input}
+Determine {input}.
+Determine {input}.
+find {input}
+find {input}
+Find {input}
+Find {input}.
+Find {input}.
+answer {input}
+answer {input}
+Answer {input}
+Answer {input}.
+Answer {input}.
+Answer the following question: {input}
+Answer the following question: {input}
+Answer the following question: {input}
+Answer the following question: {input}.
+Answer the following question: {input}.
+What is the value of {input}?
+What is the value of {input}?
+What is the value of {input}?
+What is the value of {input}
+What is the value of {input}
+What is the result of {input}?
+What is the result of {input}?
+What is the result of {input}?
+What is the result of {input}
+what is the result of {input}
+Can you tell me the result of {input}? Thank you!
+Show me the result of the following arithmetic expression: {input}
+What is the value of {input}? Show your working steps.
+Evaluate the value of {input}
+Determine the value of {input}.
+Find the result for {input}.
+Solve the expression {input}.
+Please work out {input}.
+Can you help me work out {input}? Thanks!
+Calculate the outcome of {input}.
+What is the answer to {input}?
+Provide the result for {input}.
+Can you compute the value of {input}?
+Figure out the value of {input}.
+What is the solution for {input}?
+Kindly determine the result of {input}.
+Assess the value of {input}.
+Compute the answer for {input}.
+Obtain the value for {input}.
+Reveal the result of {input}.
+What does {input} evaluate to?
+Please provide the calculation for {input}.
+Help me find the value of {input}.
+Please help me find the value of {input}.
+Uncover the result of the expression {input}.
+What is the solution for {input}?
+What is the value of {input}?
+Compute the result of {input}.
+Determine the outcome of {input}.
+Can you solve for {input}?
+Kindly calculate {input} for me.
+Please calculate {input}
+Please figure out the value of {input}.
+Find the value of {input}.
+What is the numerical value of {input}?
+Reveal the solution to {input}.
+Could you work out {input} for me?
+Please estimate the value of {input}.
+What should {input} amount to?
+Can you help me with calculating {input}?
+What is the result of the expression {input}?
+Obtain the answer for {input}.
+Evaluate the expression {input}.
+Help me determine the value of {input}.
+Calculate the answer to {input}.
+Can you calculate the outcome of {input}?
+What is the value obtained from {input}?
+Find the result of the computation for {input}.
+Can you determine the value of {input}?
+Help me solve the problem {input}.
+What is the result of {input}?
+Please assess the value of {input}.
+Could you calculate {input} for me?
+What is the outcome of the calculation {input}?
+Find the solution for {input}.
+Can you provide the answer to {input}?
+What does {input} yield?
+Please help me evaluate {input}.
+What is the numerical outcome of {input}?
+Assist me in calculating {input}.
+Can you figure out the value of {input}?
+What is the answer for the expression {input}?
+Help me uncover the result of {input}.
+Please compute and provide the result of {input}.
+What is the solution to the problem {input}?
+Determine the answer to {input} for me.
+Can you solve and provide the value of {input}?
+Solve the following problem: {input}.
+Please solve the following problem: {input}.
+Could you please solve the following problem: {input}.
+Solve the following task: {input}.
+Compute the value of {input}.
+Evaluate the expression {input}.
+Please solve for {input}.
+Find the result of {input}.
+What is the outcome of evaluating {input}?
+I need the solution to the expression {input}.
+Help me calculate the value of {input}.
+Please provide the answer for {input}.
+Compute {input} and give me the answer.
+I am looking for the value of {input}. Can you help?
+Evaluate {input} and let me know the result.
+What is the value of the expression {input}?
+Calculate {input} and tell me the solution.
+Find the value of {input} for me, please.
+Solve the arithmetic task {input} and tell me the answer.
+Can you help me find the result of {input}?
+Please give me the calculation for {input}.
+What is the numerical value of {input}?
+Determine the value of {input}.
+Compute the solution for {input}.
+What is the numerical outcome of {input}?
+Please give me the computation for {input}.
+Find the answer to the expression {input}.
+Evaluate {input} and provide the result.
+I need to know the result of {input}. Can you calculate it?
+What is the computed value of {input}?
+Help me calculate the value of {input}.
+Please show me the working for computing {input}.
+Compute {input} and tell me the numerical result.
+I am looking for the value of {input}. Can you help?
+Evaluate {input} and give me the answer.
+What is the output of evaluating {input}?
+Calculate {input} and provide the result.
+Can you compute the value of {input}?
+I need to know the numerical value of {input}.
+Find the value of {input} and provide the solution.
+Evaluate the expression {input} and let me know the computed value.
+What is the solution to the calculation of {input}?
+Can you show me how to compute the value of {input}?
+Please calculate {input} and tell me the numerical outcome.
+Compute {input} and provide the solution.
+Tell me the value of {input}.
+I need to calculate the value of {input}. Can you help?
+Evaluate {input} and let me know the numerical solution.
+Find the numerical value of {input}.
+Please give me the computation for {input}.
+Compute the value of {input}.
+Answer the problem below: {input}
+Please solve the following problem: {input}
+{input} is what
+Solve the arithmetic expression: {input}
+Evaluate the expression {input} and let me know the computed value.
+What is the solution to the calculation of {input}?
+Can you show me how to compute the value of {input}?
+Please calculate {input} and tell me the numerical outcome.
+Compute {input} and provide the solution.
+Determine the result of {input}.
+Find the value of {input}.
+Solve the expression {input} and give me the answer.
+Perform the calculation {input} and provide the result.
+What is the computed value of {input}?
+Show me the solution to {input}.
+Calculate the outcome of {input}.
+Evaluate the mathematical expression {input} and tell me the answer.
+Determine the value when evaluating {input}.
+Compute the result of {input}.
+Solve for the value of {input}.
+What is the numerical value of {input}?
+Provide the computed outcome for {input}.
+Find the solution for {input}.
+Calculate the value of {input} and give me the result.
+Can you calculate the expression {input} step by step and show the process?
+Provide a step-by-step calculation for the expression {input}.
+Walk me through the process of calculating {input} in a step-by-step manner.
+Break down the calculation of {input} and show each step.
+Can you demonstrate the step-by-step evaluation of {input}?
+Show me the step-by-step solution for the expression {input}.
+Perform a detailed step-by-step calculation for {input}.
+Explain each step involved in evaluating {input}.
+Guide me through the step-by-step computation of {input}.
+Decompose the expression {input} into individual calculation steps.
+Show the sequential steps for calculating {input}.
+Can you provide a stepwise solution for evaluating {input}?
+Demonstrate the step-by-step process for computing {input}.
+Explain the calculations involved in {input} in a step-by-step manner.
+Break down the expression {input} into its consecutive calculation steps.
+Guide me through the sequential steps of evaluating {input}.
+Provide a detailed step-by-step breakdown for calculating {input}.
+Show the step-by-step method for evaluating {input}.
+Explain each computation step in the evaluation of {input}.
+Walk me through the stepwise calculation of {input}.
+Compute the value of {input}.
+Determine the result of evaluating the expression {input}.
+Find the numerical outcome of {input}.
+Perform the calculation for {input}.
+Solve the mathematical expression {input}.
+Evaluate the equation {input} and provide the answer.
+Work out the value of {input} by performing the necessary calculations.
+Determine the numeric value resulting from {input}.
+Compute the outcome of the given expression {input}.
+Find the solution by calculating {input}.
+Perform the necessary arithmetic operations to determine the value of {input}.
+Derive the result of the expression {input} through computation.
+Carry out the calculations for {input} and provide the answer.
+Determine the numerical value resulting from the evaluation of {input}.
+Solve for the value of {input} by performing the necessary computations.
+Compute the value obtained by evaluating the expression {input}.
+Perform the required mathematical operations to find the result of {input}.
+Determine the outcome of {input} by performing the calculation.
+Find the numerical solution for {input} through computation.
+Work through the expression {input} to find its value.
+Compute the value of the expression {input}.
+Determine the result of the expression {input}.
+Find the numerical outcome of {input}.
+Evaluate {input} and provide the solution.
+Solve the equation represented by {input}.
+Perform calculations for {input} and give the answer.
+Determine the value when {input} is calculated.
+Compute the {input} and obtain the result.
+Derive the solution for {input}.
+Determine the numeric value of {input}.
+Solve the mathematical expression {input}.
+Calculate the outcome of {input}.
+Find the solution by evaluating {input}.
+Determine the result obtained by evaluating {input}.
+Obtain the computed value of {input}.
+Perform mathematical calculations for {input}.
+Compute the numerical value for {input}.
+Evaluate the equation {input} and provide the result.
+Solve {input} and give the calculated value.
+Determine the outcome of {input} through computation.
+Compute the value of the expression {input}.
+Determine the result of evaluating the expression {input}.
+Find the numerical outcome of {input} through calculation.
+Solve the mathematical expression {input} and provide the answer.
+Perform the computation for the expression {input}.
+Find the solution by evaluating {input}.
+Derive the value of {input} through calculation.
+Obtain the result by calculating {input}.
+Determine the numerical value of {input} through mathematical computation.
+Evaluate the {input} and ascertain the outcome.
+Compute the mathematical expression {input} and yield the result.
+Solve the equation {input} and provide the computed value.
+Find the outcome by performing the calculation for {input}.
+Calculate the value of the expression {input} and provide the answer.
+Determine the numerical result of {input} through computation.
+Perform the necessary calculation to obtain the value of {input}.
+Evaluate {input} mathematically and obtain the solution.
+Compute {input} to find the numerical value.
+Solve the given expression {input} and derive the outcome.
+Determine the result by carrying out the calculation for {input}.
+Find the numerical outcome of the expression {input}.
+Work out {input} and provide the result.
+Calculate the value of the given expression {input}.
+Could you assist me in computing {input}?
+Would you be able to aid me in evaluating {input}?
+Can you provide guidance on calculating the expression {input}?
+I'm seeking your assistance to calculate {input}, could you please help?
+Are you able to lend a hand in computing {input}?
+May I ask for your support in determining the value of {input}?
+Could you please guide me through the process of calculating {input}?
+I'm looking for assistance in evaluating {input}, can you help me with that?
+Can you provide step-by-step assistance in calculating {input}?
+I would greatly appreciate your help in determining the result of the expression {input}.
+Could you please lend me a hand in computing the value of {input}?
+Can you assist me in evaluating {input}? I would really appreciate it.
+Would you mind helping me calculate {input}? I'm a bit stuck.
+Can you guide me through the process of calculating {input}? I could use some help.
+I'm struggling to calculate the expression {input}, could you please offer your assistance?
+May I request your support in determining the value of {input}?
+Could you please provide your expertise in evaluating {input}?
+I'm looking for someone to help me compute {input}. Can you assist?
+Would it be possible for you to guide me through calculating the expression {input}?
+Can you please assist me in evaluating the expression {input}? Your help would be greatly appreciated.
+Could you assist me in computing {input}?
+I need your assistance in evaluating {input}. Can you help me?
+Would you mind guiding me through the calculation of the expression {input}?
+Can I rely on your help to compute {input}?
+I'm seeking your support in calculating {input}. Can you provide assistance?
+I could use some help with evaluating {input}. Can you lend a hand?
+Are you able to provide guidance in computing {input}?
+I would appreciate it if you could assist me in calculating {input}.
+Can you please lend your expertise to help me calculate {input}?
+Would you be willing to help me determine the value of {input}?
+
+

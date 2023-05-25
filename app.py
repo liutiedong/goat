@@ -48,6 +48,7 @@ def main(
             model,
             lora_weights,
             torch_dtype=torch.float16,
+            device_map={'': 0},
         )
     elif device == "mps":
         model = LlamaForCausalLM.from_pretrained(
@@ -155,7 +156,7 @@ def main(
         fn=evaluate,
         inputs=[
             gr.components.Textbox(
-                lines=2,
+                lines=1,
                 label="Arithmetic",
                 placeholder="What is 63303235 + 20239503",
             ),
@@ -182,10 +183,13 @@ def main(
                 label="Output",
             )
         ],
-        title="Goat-loRA-7b",
-        description="Goat-LoRA-7b is a 7B-parameter LLaMA finetuned to perform arithmetic tasks, including addition, subtraction, multiplication, and division of integers. It is trained on a synthetic dataset (https://github.com/liutiedong/goat) and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/liutiedong/goat).",  # noqa: E501
+        title="Goat-7B",
+        description="Goat-7B is a LLaMA-7B model fine-tuned on a synthetic dataset to perform arithmetic tasks, including addition, subtraction, multiplication, and division of integers. For more information, please visit [the project's website](https://github.com/liutiedong/goat).",  # noqa: E501
     ).queue().launch(server_name="0.0.0.0", share=share_gradio)
 
 
 if __name__ == "__main__":
     fire.Fire(main)
+
+
+

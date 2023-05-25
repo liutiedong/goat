@@ -27,7 +27,7 @@ from utils.prompter import Prompter
 
 def train(
     # model/data params
-    base_model: str = "decapoda-research/llama-7b-hf",  # the only required argument
+    base_model: str = "",  # Please specify a --base_model, e.g. --base_model='decapoda-research/llama-7b-hf'
     data_path: str = "dataset.json",
     output_dir: str = "./weights",
     
@@ -37,7 +37,7 @@ def train(
     num_epochs: int = 1,
     learning_rate: float = 3e-4,
     cutoff_len: int = 512,
-    val_set_size: int = 0,
+    val_set_size: int = 0, # we don't need val in our case.
     
     # lora hyperparams
     lora_r: int = 64,
@@ -54,7 +54,7 @@ def train(
     train_on_inputs: bool = False,  # if False, masks out inputs in loss
     group_by_length: bool = False,  # faster, but produces an odd training loss curve
     # wandb params
-    wandb_project: str = "lora_code_7B_mul",
+    wandb_project: str = "Goat-7B",
     wandb_run_name: str = "",
     wandb_watch: str = "",  # options: false | gradients | all
     wandb_log_model: str = "",  # options: false | true
