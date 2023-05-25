@@ -1,8 +1,8 @@
 #  🐐 Goat: a Fine-tuned LLaMA that is Good at Arithmetic Tasks
 
-Our implementation is based on [Alpaca-LoRA](https://github.com/tloen/alpaca-lora).
+Our implementation is mainly based on [Alpaca-LoRA](https://github.com/tloen/alpaca-lora).
 
-Checkout our paper (https://arxiv.org/abs/2305.14201).
+Our paper is available on arXiv (https://arxiv.org/abs/2305.14201).
 
 ### Local Setup
 
