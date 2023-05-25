@@ -28,8 +28,8 @@ from utils.prompter import Prompter
 def train(
     # model/data params
     base_model: str = "decapoda-research/llama-7b-hf",  # the only required argument
-    data_path: str = "dataset_test_add_mul.json",
-    output_dir: str = "./dataset_test_add_mul",
+    data_path: str = "dataset_test_add.json",
+    output_dir: str = "./dataset_test_add",
     
     # training hyperparams
     batch_size: int = 128,
@@ -59,7 +59,7 @@ def train(
     wandb_watch: str = "",  # options: false | gradients | all
     wandb_log_model: str = "",  # options: false | true
     resume_from_checkpoint: str = None,  # either training checkpoint or final adapter
-    prompt_template_name: str = "goat"
+    prompt_template_name: str = "Q_template_bug"
 ):
     if int(os.environ.get("LOCAL_RANK", 0)) == 0:
         print(
