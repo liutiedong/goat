@@ -34,7 +34,7 @@ class Prompter(object):
 
         res = f"{instruction}"
         if label:
-            res = f"{res}{label}"
+            res = f"{res} = {label}"
         if self._verbose:
             print(res)
         return res
@@ -46,32 +46,45 @@ class Prompter(object):
         label: Union[None, str] = None,
     ) -> str:
 
-        if random.random()<0.5:
-            instruction = instruction.replace("*", "x")
+        if random.random() < 0.1:
+            if "+" in instruction:
+                instruction = "the sum of " + instruction.replace("+", "and")
+
+            if "-" in instruction:
+                instruction = "the difference of " + instruction.replace("-", "and")
+
+            if "*" in instruction:
+                instruction = "the product of " + instruction.replace("*", "and")
+
+            if "/" in instruction:
+                instruction = "the quotient and remainder of " + instruction.replace("/", "and")
+
+        if random.random() < 0.5:
+            instruction = instruction.replace("*", "x")    
         
-        if random.random()<0.1:
-            instruction = instruction.replace("+", "plus").replace("-", "minus").replace("x", "times").replace("*", "multiplied by").replace("/", "divided by")    
+        if random.random() < 0.1:
+            instruction = instruction.replace("+", "plus").replace("-", "minus")
+            instruction = instruction.replace("x", "times").replace("*", "multiplied by").replace("/", "divided by")    
+
+
+        if random.random()<0.5:
+            if "+" in data_point["input"] or "-" in data_point["input"] or "*" in data_point["input"] or "/" in data_point["input"] or "x" in data_point["input"]:
+                data_point["input"] = data_point["input"].replace(" ", "")        
 
         num = random.randint(1,500)
-        if random.random()<0.6:
-            res = self.template[str(num)].format(
-                arithmetic = instruction.replace(" = ", "")
-            )
-        else:
-            res = self.template[str(num)].format(
-                arithmetic = instruction.replace("=", "").replace(" ", "")
-            )
+        
+        res = self.template[str(num)].format(
+            input = instruction
+        )            
 
-
-        prompt = f"{res}\nAnswer: "
-            
+        res = f"{res}\nAnswer: "
                
         if label:
-            # res = f"{res}{instruction}{label}"
-            prompt = f"{prompt}{label}"
+            res = f"{res}{label}"
+        
         if self._verbose:
-            print(prompt)
-        return prompt
+            print(res)
+        return res
 
     def generate_prompt_inference(
         self,
@@ -80,11 +93,10 @@ class Prompter(object):
     ) -> str:
         
         res = f"{instruction}\nAnswer: "
-            
-               
+                         
         if label:
-            # res = f"{res}{instruction}{label}"
             res = f"{res}{label}"
+        
         if self._verbose:
             print(res)
         return res

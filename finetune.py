@@ -27,9 +27,9 @@ from utils.prompter import Prompter
 
 def train(
     # model/data params
-    base_model: str = "",  # the only required argument
-    data_path: str = "train_ablation_200000.json",
-    output_dir: str = "./train_ablation_200000",
+    base_model: str = "decapoda-research/llama-7b-hf",  # the only required argument
+    data_path: str = "dataset_test_add_mul.json",
+    output_dir: str = "./dataset_test_add_mul",
     
     # training hyperparams
     batch_size: int = 128,
@@ -88,7 +88,7 @@ def train(
         )
     assert (
         base_model
-    ), "Please specify a --base_model, e.g. --base_model='decapoda-research/llama-13b-hf'"
+    ), "Please specify a --base_model, e.g. --base_model='decapoda-research/llama-7b-hf'"
     gradient_accumulation_steps = batch_size // micro_batch_size
 
     prompter = Prompter(prompt_template_name)
@@ -146,13 +146,13 @@ def train(
 
     def generate_and_tokenize_prompt(data_point):
         full_prompt = prompter.generate_prompt(
-            data_point["question"],
-            data_point["cot"],
+            data_point["input"],
+            data_point["output"],
         )
         tokenized_full_prompt = tokenize(full_prompt)
         if not train_on_inputs:
             user_prompt = prompter.generate_prompt(
-                data_point["question"]
+                data_point["input"]
             )
             tokenized_user_prompt = tokenize(user_prompt, add_eos_token=False)
             user_prompt_len = len(tokenized_user_prompt["input_ids"])

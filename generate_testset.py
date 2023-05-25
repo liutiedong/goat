@@ -27,8 +27,8 @@ except:  # noqa: E722
 def main(
     load_8bit: bool = True,
     base_model: str = "",
-    lora_weights: str = "new_template-train_final_0512",
-    prompt_template: str = "Q_template",  # The prompt template to use, will default to alpaca.
+    lora_weights: str = "new_template-train_language_0525",
+    prompt_template: str = "goat",  # The prompt template to use, will default to alpaca.
     server_name: str = "0.0.0.0",  # Allows to listen on all interfaces by providing '0.
     share_gradio: bool = True,
 ):
@@ -99,7 +99,7 @@ def main(
         max_new_tokens=512,
         **kwargs,
     ):
-        prompt = prompter.generate_prompt_q(instruction, input)
+        prompt = prompter.generate_prompt(instruction)
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
         generation_config = GenerationConfig(
@@ -124,7 +124,7 @@ def main(
     
     
     
-    with open("train_final_test.json","rb") as test_file:
+    with open("dataset_test_add_mul.json","rb") as test_file:
         test_data = json.load(test_file)
         
     output_dict = {}
@@ -135,26 +135,36 @@ def main(
     
     
     
-    with open("output_new_template_train_final_test.jsonl",'a') as output_file:
+    with open("./test_output/dataset_test_add_mul.jsonl",'a') as output_file:
         for obj in test_data:
             index += 1
             if index>0:
                 # print(str(index))#,": ",obj['instruction']
-                output_dict["instruction"] = obj['instruction']           
-                output_dict["result"] = evaluate(obj['instruction'])
+                output_dict["instruction"] = obj['input']           
+                output_dict["result"] = evaluate(obj['input'])
                 print(output_dict["result"])
                 # print("",obj['instruction'],obj['cot'])
                 # print(obj['output'])
-                print(obj['instruction'] + obj['output'])
-                if output_dict["result"].split()[-1] == obj['output'].split()[-1]:
+                print(obj['input'] +" "+ obj['answer'])
+                
+                preds.append(output_dict["result"].split()[-1])
+                target.append((obj['input'] +" " + obj['answer']).split()[-1])
+                
+                if output_dict["result"].split()[-1] == (obj['input'] + " " + obj['answer']).split()[-1]:
                     correct = correct + 1
                 else:
+                    
                     print("  Wrong!!!")
                 accuracy = correct/index
                     
                 print("------", correct, index, accuracy,"------")
                 # output_dict["cot"] = obj['cot']    
-                output_dict["output"] = obj['output']
+                output_dict["output"] = obj['answer']
+                
+                if index%10==0:
+                    print(1-cer(preds,target))
+                output_dict["accuracy"] = accuracy
+                output_dict["token"] = 1-cer(preds,target).item()
 
                 json_string = json.dumps(output_dict)
                 output_file.write(json_string+'\n')
