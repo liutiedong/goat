@@ -1,7 +1,7 @@
 accelerate
 appdirs
 loralib
-bitsandbytes==3.27.0
+bitsandbytes==0.37.2
 black
 black[jupyter]
 datasets

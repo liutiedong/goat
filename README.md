@@ -1,8 +1,18 @@
 #  🐐 Goat: a Fine-tuned LLaMA that is Good at Arithmetic Tasks
 
-Our implementation is mainly based on [Alpaca-LoRA](https://github.com/tloen/alpaca-lora).
+| [Paper](https://arxiv.org/abs/2305.14201) | [Adapter Weights](https://huggingface.co/tiedong/goat-lora-7b) | [Dataset](https://huggingface.co/datasets/tiedong/goat) | 
 
-Our paper is available on arXiv (https://arxiv.org/abs/2305.14201).
+
+### Demo
+#### Addition
+![Alt text](imgs/add.png?raw=true)
+#### Subtraction
+![Alt text](imgs/sub.png?raw=true)
+#### Multiplication
+![Alt text](imgs/mul.png?raw=true)
+#### Division
+![Alt text](imgs/div.png?raw=true)
+
 
 ### Local Setup
 
@@ -13,12 +23,12 @@ Our paper is available on arXiv (https://arxiv.org/abs/2305.14201).
    ```
 
 ### Dataset (`dataset.ipynb`)
-Run `dataset.ipynb` to generate dataset file, or download from HuggingFace dataset `tiedong/goat`. Each instance in the dataset contains
+Run `dataset.ipynb` to generate `dataset.json` file, or download from HuggingFace dataset `tiedong/goat` (https://huggingface.co/datasets/tiedong/goat). Each instance in the dataset contains
 
-- __instruction__: human instruction in natural language created by inserting an arithmetic expression to the template. It serves as prompt to be fed to the model.
-- __input__: a randomly generated arithmetic expression. It can be used to replace 'instruction' when we want to focus on arithmetic and avoid the influence of natural language.
-- __output__: the target for the model to learn. It contains CoTs for multi-digit multiplication and division.
-- __answer__: direct numerical answer to the arithmetic task. It can be used to test learnability of the sub-tasks.
+- __instruction__: human instruction created by inserting an arithmetic expression to a randomly chosen template and adding some natural language noises. It serves as prompts to be fed to the model for instruction-finetuning.
+- __input__: a randomly generated arithmetic expression. It can be used to replace 'instruction' for training when we want to focus on arithmetic and avoid the influence of natural language.
+- __output__: the target output for the model to learn. It contains CoTs for multi-digit multiplication and division.
+- __answer__: direct numerical answer to the arithmetic task. It can be used to test learnability of various sub-tasks.
 
 Example:
 ```bash
@@ -101,3 +111,15 @@ python app.py \
 ```
 
 
+### Citation
+```
+@article{liu2023goat,
+  title={Goat: Fine-tuned LLaMA Outperforms GPT-4 on Arithmetic Tasks},
+  author={Liu, Tiedong and Low, Bryan Kian Hsiang},
+  journal={arXiv preprint arXiv:2305.14201},
+  year={2023}
+}
+```
+
+### Acknowledgements
+Our implementation is mainly based on [Alpaca-LoRA](https://github.com/tloen/alpaca-lora).
