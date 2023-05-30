@@ -5,13 +5,18 @@
 
 ### Demo
 #### Addition
+![Alt text](imgs/gpt-4-add.png?raw=true)
 ![Alt text](imgs/add.png?raw=true)
 #### Subtraction
+![Alt text](imgs/gpt-4-sub.png?raw=true)
 ![Alt text](imgs/sub.png?raw=true)
 #### Multiplication
+![Alt text](imgs/gpt-4-mul.png?raw=true)
 ![Alt text](imgs/mul.png?raw=true)
 #### Division
+![Alt text](imgs/gpt-4-div.png?raw=true)
 ![Alt text](imgs/div.png?raw=true)
+
 
 
 ### Local Setup
