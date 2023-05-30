@@ -6,13 +6,13 @@
 ### Demo
 1. Addition
 <p float="left">
-    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 50%;">
-    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 50%;">
+    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 49%;">
+    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 49%;">
 </p>
 2. Subtraction
 <div style="display: flex;">
-    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 50%;">
-    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 50%;">
+    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 49%;">
+    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 49%;">
 </div>
 3. Multiplication
 <div style="display: flex;">
