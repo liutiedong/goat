@@ -1,7 +1,6 @@
-#  🐐 Goat: a Fine-tuned LLaMA that is Good at Arithmetic Tasks
+#  🐐 Goat: Fine-tuned LLaMA Outperforms GPT-4 on Arithmetic Tasks
 
-<p align="center"><a href="https://arxiv.org/abs/2305.14201">[Paper]</a> | <a href="https://huggingface.co/tiedong/goat-lora-7b">[Adapter Weights]</a> | <a href="https://huggingface.co/datasets/tiedong/goat">[Dataset]</a> </p>
-<hr>
+<p align="center"><a href="https://arxiv.org/abs/2305.14201">[Paper]</a> | <a href="https://huggingface.co/tiedong/goat-lora-7b">[Adapter Weights]</a> | <a href="https://huggingface.co/datasets/tiedong/goat">[Dataset]</a> | <a href="https://colab.research.google.com/drive/15tiSi_XvSpFC-M0c45lJXOwDPgjDSrK9?usp=sharing">[Colab]</a> </p>
 
 ### Demo
 1. Addition
@@ -71,7 +70,15 @@ Example:
 },
 
 ```
-It is good to start with a simple sub-task, say 8-digit by 8-digit addition, which only takes less than 2 hours to achieve near-perfect accuracy (100000 training samples on A10 GPU). Modify `dataset.ipynb` to create your own data.
+Feel free to modify `dataset.ipynb` to create your own data.
+
+It is good to start with a simple sub-task, say 8-digit by 8-digit addition, 
+```
+pairs = [(random.randint(10**7, 10**8), random.randint(10**7, 10**8)) for k in range(100000)]
+```
+It only takes less than 2 hours of finetuning to achieve near-perfect accuracy (100000 training samples on A10 GPU). 
+
+
 
 ### Template (`goat.json`)
 `template.txt` contains several hundred natural language instructions. Instructions that are more commonly used are duplicated more times to increase their chances of being sampled. Instructions that are generated using ChatGPT are listed behind without duplication. Note that some instructions may not be coherent or grammatical correct after inserting arithmetic expressions, but it should not be a problem if we do not train on input. 
@@ -123,6 +130,7 @@ python app.py \
     --lora_weights 'tiedong/goat-lora-7b'
 ```
 
+Alternatively, host your own Goat gradio demo directly in Colab with [this notebook](https://colab.research.google.com/drive/15tiSi_XvSpFC-M0c45lJXOwDPgjDSrK9?usp=sharing).
 
 ### Citation
 ```
