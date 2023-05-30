@@ -1,28 +1,28 @@
 #  🐐 Goat: a Fine-tuned LLaMA that is Good at Arithmetic Tasks
 
-<center> | [Paper](https://arxiv.org/abs/2305.14201) | [Adapter Weights](https://huggingface.co/tiedong/goat-lora-7b) | [Dataset](https://huggingface.co/datasets/tiedong/goat) | </center>
+<p style="text-align:center;">| [Paper](https://arxiv.org/abs/2305.14201) | [Adapter Weights](https://huggingface.co/tiedong/goat-lora-7b) | [Dataset](https://huggingface.co/datasets/tiedong/goat) |</p>
 
 
 ### Demo
 1. Addition
-<p float="left">
-    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 49%;">
-    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 49%;">
-</p>
+<div style="display: flex;">
+    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 40%;">
+    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 59%;">
+</div>
 2. Subtraction
 <div style="display: flex;">
-    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 49%;">
-    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 49%;">
+    <img src="imgs/gpt-4-sub.png?raw=true" alt="Alt text" style="width: 40%;">
+    <img src="imgs/sub.png?raw=true" alt="Alt text" style="width: 59%;">
 </div>
 3. Multiplication
 <div style="display: flex;">
-    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 50%;">
-    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 50%;">
+    <img src="imgs/gpt-4-mul.png?raw=true" alt="Alt text" style="width: 40%;">
+    <img src="imgs/mul.png?raw=true" alt="Alt text" style="width: 59%;">
 </div>
 4. Division
 <div style="display: flex;">
-    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 50%;">
-    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 50%;">
+    <img src="imgs/gpt-4-div.png?raw=true" alt="Alt text" style="width: 40%;">
+    <img src="imgs/div.png?raw=true" alt="Alt text" style="width: 59%;">
 </div>
 
 
