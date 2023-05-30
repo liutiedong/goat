@@ -1,21 +1,17 @@
 #  🐐 Goat: a Fine-tuned LLaMA that is Good at Arithmetic Tasks
 
-| [Paper](https://arxiv.org/abs/2305.14201) | [Adapter Weights](https://huggingface.co/tiedong/goat-lora-7b) | [Dataset](https://huggingface.co/datasets/tiedong/goat) | 
+<center> | [Paper](https://arxiv.org/abs/2305.14201) | [Adapter Weights](https://huggingface.co/tiedong/goat-lora-7b) | [Dataset](https://huggingface.co/datasets/tiedong/goat) | </center>
 
 
 ### Demo
-#### Addition
-![Alt text](imgs/gpt-4-add.png?raw=true)
-![Alt text](imgs/add.png?raw=true)
-#### Subtraction
-![Alt text](imgs/gpt-4-sub.png?raw=true)
-![Alt text](imgs/sub.png?raw=true)
-#### Multiplication
-![Alt text](imgs/gpt-4-mul.png?raw=true)
-![Alt text](imgs/mul.png?raw=true)
-#### Division
-![Alt text](imgs/gpt-4-div.png?raw=true)
-![Alt text](imgs/div.png?raw=true)
+1. Addition
+![Alt text](imgs/gpt-4-add.png?raw=true) ![Alt text](imgs/add.png?raw=true)
+2. Subtraction
+![Alt text](imgs/gpt-4-sub.png?raw=true) ![Alt text](imgs/sub.png?raw=true)
+3. Multiplication
+![Alt text](imgs/gpt-4-mul.png?raw=true) ![Alt text](imgs/mul.png?raw=true)
+4. Division
+![Alt text](imgs/gpt-4-div.png?raw=true) ![Alt text](imgs/div.png?raw=true)
 
 
 
