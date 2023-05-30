@@ -5,10 +5,10 @@
 
 ### Demo
 1. Addition
-<div style="display: flex;">
+<p float="left">
     <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 50%;">
     <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 50%;">
-</div>
+</p>
 2. Subtraction
 <div style="display: flex;">
     <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 50%;">
