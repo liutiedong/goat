@@ -5,13 +5,25 @@
 
 ### Demo
 1. Addition
-![Alt text](imgs/gpt-4-add.png?raw=true) ![Alt text](imgs/add.png?raw=true)
+<div style="display: flex;">
+    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 50%;">
+    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 50%;">
+</div>
 2. Subtraction
-![Alt text](imgs/gpt-4-sub.png?raw=true) ![Alt text](imgs/sub.png?raw=true)
+<div style="display: flex;">
+    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 50%;">
+    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 50%;">
+</div>
 3. Multiplication
-![Alt text](imgs/gpt-4-mul.png?raw=true) ![Alt text](imgs/mul.png?raw=true)
+<div style="display: flex;">
+    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 50%;">
+    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 50%;">
+</div>
 4. Division
-![Alt text](imgs/gpt-4-div.png?raw=true) ![Alt text](imgs/div.png?raw=true)
+<div style="display: flex;">
+    <img src="imgs/gpt-4-add.png?raw=true" alt="Alt text" style="width: 50%;">
+    <img src="imgs/add.png?raw=true" alt="Alt text" style="width: 50%;">
+</div>
 
 
 
