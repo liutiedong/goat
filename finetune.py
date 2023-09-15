@@ -27,7 +27,7 @@ from utils.prompter import Prompter
 
 def train(
     # model/data params
-    base_model: str = "",  # Please specify a --base_model, e.g. --base_model='decapoda-research/llama-7b-hf'
+    base_model: str = "decapoda-research/llama-7b-hf",  # Please specify a --base_model, e.g. --base_model='decapoda-research/llama-7b-hf'
     data_path: str = "dataset.json",
     output_dir: str = "./weights",
     
@@ -54,8 +54,11 @@ def train(
     train_on_inputs: bool = False,  # if False, masks out inputs in loss
     group_by_length: bool = False,  # faster, but produces an odd training loss curve
     # wandb params
+    wandb_api_key=None,
     wandb_project: str = "Goat-7B",
+    wandb_group=None,
     wandb_run_name: str = "",
+    wandb_tags: List[str] = [],
     wandb_watch: str = "",  # options: false | gradients | all
     wandb_log_model: str = "",  # options: false | true
     resume_from_checkpoint: str = None,  # either training checkpoint or final adapter
